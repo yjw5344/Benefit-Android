@@ -5,7 +5,6 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.PagerAdapter;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.project.graduate.neartheplace.R;
+
 
 public class CustomViewPagerAdapter extends FragmentPagerAdapter implements SmartTabLayout.TabProvider {
 
