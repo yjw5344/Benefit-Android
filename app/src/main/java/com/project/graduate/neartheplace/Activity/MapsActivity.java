@@ -24,6 +24,7 @@ import com.project.graduate.neartheplace.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
+
     /** Map 코드 설명
      * FusedLocationProviderClient : 구글 맵을 사용하기 위한 Provider
      * FusedLocationProviderClient를 사용하기 위해서 GoogleApuClient를 먼저 선언해야지 사용이 가능하다
