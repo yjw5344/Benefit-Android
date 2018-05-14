@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">NearThePlace</string>
+
+    <!-- Login Activity String -->
+    <string name="prompt_email">아이디 (Email)</string>
+    <string name="prompt_password">비밀번호 (6자리 이상 입력)</string>
+    <string name="action_sign_in">로그인</string>
+    <string name="action_sign_up">회원가입</string>
+    <string name="error_invalid_email">이메일 형식이 아닙니다.</string>
+    <string name="error_invalid_password">비밀번호가 너무 짧습니다.</string>
+    <string name="error_incorrect_password">비빌번호가 틀렸습니다.</string>
+    <string name="error_field_required">빈칸을 입력해주세요.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
