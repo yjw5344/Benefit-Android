@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 
-import com.project.graduate.neartheplace.Activity.MapsActivity;
+import com.project.graduate.neartheplace.Map.MapsActivity;
 import com.project.graduate.neartheplace.R;
 
 

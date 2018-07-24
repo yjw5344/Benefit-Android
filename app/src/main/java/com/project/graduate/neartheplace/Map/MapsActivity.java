@@ -1,4 +1,4 @@
-package com.project.graduate.neartheplace.Activity;
+package com.project.graduate.neartheplace.Map;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -23,6 +23,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.project.graduate.neartheplace.R;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+
 
     /** Map 코드 설명
      * FusedLocationProviderClient : 구글 맵을 사용하기 위한 Provider

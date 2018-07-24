@@ -18,23 +18,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".Activity.LoginActivity">
+        <activity android:name=".SignIn.LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activity.MainActivity" />
-        <activity android:name=".Activity.RegistActivity" />
+        <activity android:name=".MainActivity.MainActivity" />
+        <activity android:name=".SignUp.RegistActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".Activity.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:name=".Map.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".MyInfo.MyInfoModifyActivity" />
+        <activity android:name=".Board.BoardDialog" />
+        <activity android:name=".Board.BoardCreate"></activity>
     </application>
 
 </manifest>

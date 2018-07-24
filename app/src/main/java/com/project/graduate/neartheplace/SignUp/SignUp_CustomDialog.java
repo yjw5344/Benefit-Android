@@ -1,4 +1,4 @@
-package com.project.graduate.neartheplace.Dialog;
+package com.project.graduate.neartheplace.SignUp;
 
 import android.app.Dialog;
 import android.content.Context;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import com.project.graduate.neartheplace.R;
 
-public class Login_CustomDialog extends Dialog{
+public class SignUp_CustomDialog extends Dialog{
 
     private Button regist_button;
     private Button naver_button;
@@ -31,7 +31,7 @@ public class Login_CustomDialog extends Dialog{
         cancle_button.setOnClickListener(mCancleListener);
     }
 
-    public Login_CustomDialog(Context context, View.OnClickListener registListener,View.OnClickListener naverListener,View.OnClickListener cancleListener) {
+    public SignUp_CustomDialog(Context context, View.OnClickListener registListener, View.OnClickListener naverListener, View.OnClickListener cancleListener) {
         super(context);
         this.mRegistListener = registListener;
         this.mNaverListener = naverListener;
