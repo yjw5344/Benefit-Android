@@ -1,4 +1,4 @@
-package com.project.graduate.neartheplace.Activity;
+package com.project.graduate.neartheplace.Map;
 
 import android.Manifest;
 import android.content.pm.PackageManager;

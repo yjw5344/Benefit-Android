@@ -1,21 +1,17 @@
-package com.project.graduate.neartheplace.Activity;
+package com.project.graduate.neartheplace.SignUp;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.TextView;
 
+import com.project.graduate.neartheplace.MainActivity.MainActivity;
 import com.project.graduate.neartheplace.R;
 
 import java.util.ArrayList;
