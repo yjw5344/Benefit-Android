@@ -1,13 +1,9 @@
-package com.project.graduate.neartheplace.Activity;
+package com.project.graduate.neartheplace.MainActivity;
 
-import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.ogaclejapan.smarttablayout.SmartTabLayout;
 import com.project.graduate.neartheplace.Fragment.CustomViewPagerAdapter;
@@ -42,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
         viewPagerTab.setCustomTabView(mPagerAdapter);
         viewPagerTab.setViewPager(viewPager);
         viewPager.setCurrentItem(2);
-        //===============================================================================================================
     }
 
 

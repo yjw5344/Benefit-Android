@@ -9,10 +9,10 @@
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
     android:paddingTop="16dp"
-    tools:context="com.project.graduate.neartheplace.SignUp.RegistActivity">
+    tools:context="com.project.graduate.neartheplace.MyInfo.MyInfoModifyActivity">
 
     <ScrollView
-        android:id="@+id/regist_form"
+        android:id="@+id/modify_form"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -28,7 +28,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:layout_gravity="left"
-                android:text="회원가입"
+                android:text="회원 정보 수정"
                 android:textSize="18pt"
                 android:textStyle="bold" />
 
@@ -57,7 +57,7 @@
                     android:gravity="center"/>
 
                 <EditText
-                    android:id="@+id/regist_name"
+                    android:id="@+id/modify_name"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.3"
@@ -85,7 +85,7 @@
                     android:gravity="center"/>
 
                 <EditText
-                    android:id="@+id/regist_email"
+                    android:id="@+id/modify_email"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
@@ -97,7 +97,7 @@
                     android:maxLines="1"/>
 
             </LinearLayout>
-            
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,7 +114,7 @@
                     android:gravity="center"/>
 
                 <EditText
-                    android:id="@+id/regist_password"
+                    android:id="@+id/modify_password"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.5"
@@ -143,7 +143,7 @@
                     android:textStyle="bold"/>
 
                 <EditText
-                    android:id="@+id/regist_password2"
+                    android:id="@+id/modify_password2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:maxWidth="50dp"
@@ -172,7 +172,7 @@
                     android:textStyle="bold"/>
 
                 <EditText
-                    android:id="@+id/regist_nickname"
+                    android:id="@+id/modify_nickName"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="0.4"
@@ -200,7 +200,7 @@
                     android:textStyle="bold"/>
 
                 <RadioGroup
-                    android:id="@+id/regist_gender"
+                    android:id="@+id/modify_gender"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
@@ -208,7 +208,7 @@
 
                     <!--남자 선택 Radio Button-->
                     <RadioButton
-                        android:id="@+id/regist_male"
+                        android:id="@+id/modify_male"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
@@ -218,7 +218,7 @@
 
                     <!--여자 선택 Radio Button-->
                     <RadioButton
-                        android:id="@+id/regist_female"
+                        android:id="@+id/modify_female"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
@@ -248,17 +248,17 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
+                    android:textStyle="bold"
                     android:layout_weight="0.7">
 
-                    android:textStyle="bold"
                     <Spinner
-                        android:id="@+id/regist_birthYear"
+                        android:id="@+id/modify_birthYear"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:spinnerMode="dialog"/>
 
                     <Spinner
-                        android:id="@+id/regist_birthMonth"
+                        android:id="@+id/modify_birthMonth"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:spinnerMode="dialog"
@@ -266,7 +266,7 @@
                         android:layout_marginLeft="20dp"/>
 
                     <Spinner
-                        android:id="@+id/regist_birthDay"
+                        android:id="@+id/modify_birthDay"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:spinnerMode="dialog"
@@ -280,7 +280,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/regist_finish"
+                android:id="@+id/modify_finish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -289,13 +289,7 @@
                 android:layout_marginBottom="30dp"
                 android:text="완료"/>
 
-
         </LinearLayout>
-
     </ScrollView>
 
 </LinearLayout>
-
-
-
-

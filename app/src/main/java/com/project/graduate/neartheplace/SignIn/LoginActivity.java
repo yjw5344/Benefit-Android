@@ -1,4 +1,4 @@
-package com.project.graduate.neartheplace.Activity;
+package com.project.graduate.neartheplace.SignIn;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -23,7 +23,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.project.graduate.neartheplace.Dialog.Login_CustomDialog;
+import com.project.graduate.neartheplace.MainActivity.MainActivity;
+import com.project.graduate.neartheplace.SignUp.RegistActivity;
+import com.project.graduate.neartheplace.SignUp.SignUp_CustomDialog;
 import com.project.graduate.neartheplace.R;
 
 import org.json.JSONException;
@@ -35,7 +37,6 @@ import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
-import okhttp3.Callback;
 import okhttp3.Response;
 
 public class LoginActivity extends AppCompatActivity {
@@ -48,7 +49,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
-    private Login_CustomDialog dialog;
+    private SignUp_CustomDialog dialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,7 +99,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // Sign Up - Dialog
     public void Dialog() {
-        dialog = new Login_CustomDialog(LoginActivity.this, registListener, naverListener, cancleListener);
+        dialog = new SignUp_CustomDialog(LoginActivity.this, registListener, naverListener, cancleListener);
         dialog.setCancelable(true);
         dialog.getWindow().setGravity(Gravity.CENTER);
         dialog.show();
