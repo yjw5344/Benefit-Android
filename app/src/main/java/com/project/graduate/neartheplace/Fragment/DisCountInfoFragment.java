@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import com.project.graduate.neartheplace.R;
 
 
-public class InfoFragment extends Fragment {
+public class DisCountInfoFragment extends Fragment {
 
-    public InfoFragment() {
+    public DisCountInfoFragment() {
         // Required empty public constructor
     }
 

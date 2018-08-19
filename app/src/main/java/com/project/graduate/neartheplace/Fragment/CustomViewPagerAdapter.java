@@ -20,22 +20,21 @@ public class CustomViewPagerAdapter extends FragmentPagerAdapter implements Smar
     private final Context context;
 
     public enum CustomTab {
-        TAB_1(0, "할인정보", R.drawable.icon_customtab_saleinfo, new InfoFragment()),
-        TAB_2(1, "게시판", R.drawable.icon_customtab_board, new BoardFragment()),
-        TAB_3(2, "홈", R.drawable.icon_customtab_main, new MainFragment()),
-        TAB_4(3, "달력", R.drawable.icon_customtab_calc, new CalcFragment()),
-        TAB_5(4, "내 정보", R.drawable.icon_customtab_myinfo, new MyInfoFragment());
+        TAB_1(0, "할인정보", R.drawable.icon_customtab_saleinfo),
+        TAB_2(1, "게시판", R.drawable.icon_customtab_board),
+        TAB_3(2, "홈", R.drawable.icon_customtab_main),
+        TAB_4(3, "달력", R.drawable.icon_customtab_calc),
+        TAB_5(4, "내 정보", R.drawable.icon_customtab_myinfo);
 
         public int index;
         public String title;
         public int resourceId;
         public Fragment fragment;
 
-        CustomTab(int index, String title, int resourceId, Fragment fragment) {
+        CustomTab(int index, String title, int resourceId) {
             this.index = index;
             this.title = title;
             this.resourceId = resourceId;
-            this.fragment = fragment;
         }
     }
 
