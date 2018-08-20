@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NearThePlace</string>
+    <string name="app_name">혜택인</string>
 
     <!-- Login Activity String -->
     <string name="prompt_email">아이디 (Email)</string>

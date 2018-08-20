@@ -20,7 +20,7 @@ public class SignUp_CustomDialog extends Dialog{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.customdialog_login);
+        setContentView(R.layout.dialog_login);
 
         regist_button = (Button) findViewById(R.id.loginCustomDialog_self);
         naver_button = (Button) findViewById(R.id.loginCustomDialog_naver);

@@ -1,8 +1,6 @@
 package com.project.graduate.neartheplace.Fragment;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -29,9 +27,9 @@ import okhttp3.Response;
 
 public class MainFragment extends Fragment {
 
-    private ImageButton mapBtn;
-    private JSONObject resultJsonObject;
-    private String UserToken;
+    private ImageButton  mapBtn;
+    private JSONObject   resultJsonObject;
+    private String       userToken;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -40,15 +38,14 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container ,false);
 
 
-        SendMainActivity sendMainActivity = new SendMainActivity();
-        sendMainActivity.execute();
+//        SendMainActivity sendMainActivity = new SendMainActivity();
+//        sendMainActivity.execute();
 
 
+        userToken = getArguments().getString("userToken");
+//        Toast.makeText(getActivity(),userToken, Toast.LENGTH_SHORT).show();
 
-
-
-
-
+        //todo : 코드 정리 및 현재의 위도경도 받아오는 코드 작성... UI 제작
 
 
 
@@ -103,6 +100,7 @@ public class MainFragment extends Fragment {
         @Override
         protected void onCancelled() {
             Toast.makeText(getActivity(), "통신실패", Toast.LENGTH_SHORT).show();
+            Log.d("Main", "ServerConnect Error");
         }
     }
 }
