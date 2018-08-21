@@ -1,14 +1,13 @@
 package com.project.graduate.neartheplace.MainActivity;
 
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.os.Bundle;
 import android.widget.TabHost;
 import com.project.graduate.neartheplace.Fragment.BoardFragment;
-import com.project.graduate.neartheplace.Fragment.CalcFragment;
-import com.project.graduate.neartheplace.Fragment.DisCountInfoFragment;
+import com.project.graduate.neartheplace.Fragment.DiscountFragment;
+import com.project.graduate.neartheplace.Fragment.CalendarFragment;
 import com.project.graduate.neartheplace.Fragment.MainFragment;
 import com.project.graduate.neartheplace.Fragment.MyInfoFragment;
 import com.project.graduate.neartheplace.R;
@@ -38,7 +37,7 @@ public class MainActivity extends FragmentActivity{
 
         TabHost.TabSpec tabSpec1 = host.newTabSpec("tab1"); // 구분자
         tabSpec1.setIndicator("할인"); // 탭 이름
-        host.addTab(tabSpec1, DisCountInfoFragment.class, bundle);
+        host.addTab(tabSpec1, DiscountFragment.class, bundle);
 
         TabHost.TabSpec tabSpec2 = host.newTabSpec("tab2");
         tabSpec2.setIndicator("게시판");
@@ -50,7 +49,7 @@ public class MainActivity extends FragmentActivity{
 
         TabHost.TabSpec tabSpec4 = host.newTabSpec("tab4");
         tabSpec4.setIndicator("달력");
-        host.addTab(tabSpec4, CalcFragment.class, bundle);
+        host.addTab(tabSpec4, CalendarFragment.class, bundle);
 
         TabHost.TabSpec tabSpec5= host.newTabSpec("tab5");
         tabSpec5.setIndicator("내 정보");

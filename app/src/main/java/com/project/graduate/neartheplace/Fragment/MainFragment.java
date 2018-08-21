@@ -41,9 +41,7 @@ public class MainFragment extends Fragment {
 //        SendMainActivity sendMainActivity = new SendMainActivity();
 //        sendMainActivity.execute();
 
-
         userToken = getArguments().getString("userToken");
-//        Toast.makeText(getActivity(),userToken, Toast.LENGTH_SHORT).show();
 
         //todo : 코드 정리 및 현재의 위도경도 받아오는 코드 작성... UI 제작
 

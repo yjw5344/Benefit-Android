@@ -39,10 +39,11 @@ public class BoardFragment extends Fragment {
     private String              userToken;
     private ListView            listView;
     private BoardListAdapter    adapter;
+    private BoardDialog         dialog;
     private ImageButton         createBtn;
     private ImageButton         refreshBtn;
     private ImageButton         searchBtn;
-    private BoardDialog         dialog;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
