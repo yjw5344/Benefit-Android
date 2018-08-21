@@ -28,13 +28,20 @@ public class DistanceDialog extends Dialog {
         cancleBtn = (Button)findViewById(R.id.dialog_distance_cancle);
         selectBtn.setOnClickListener(selectBtnListener);
         cancleBtn.setOnClickListener(cancleBtnListener);
-        selectRadioGroup = (RadioGroup)findViewById(R.id.dialog_distance_radioGroup);
-        selectRadioButton = (RadioButton)findViewById(selectRadioGroup.getCheckedRadioButtonId());
     }
 
     public DistanceDialog(Context context, View.OnClickListener selectBtnListener, View.OnClickListener cancleBtnListener) {
         super(context);
         this.selectBtnListener = selectBtnListener;
         this.cancleBtnListener = cancleBtnListener;
+    }
+
+    public String getSelectRadioButton() {
+        return selectRadioButton.getText().toString();
+    }
+
+    public void setSelectRadioButton() {
+        selectRadioGroup = (RadioGroup)findViewById(R.id.dialog_distance_radioGroup);
+        this.selectRadioButton = (RadioButton)findViewById(selectRadioGroup.getCheckedRadioButtonId());
     }
 }

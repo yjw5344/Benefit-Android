@@ -28,8 +28,6 @@ public class CategoryDialog extends Dialog {
         cancleBtn = (Button)findViewById(R.id.dialog_category_cancle);
         selectBtn.setOnClickListener(selectBtnListener);
         cancleBtn.setOnClickListener(cancleBtnListener);
-        selectRadioGroup = (RadioGroup)findViewById(R.id.dialog_category_radioGroup);
-        selectRadioButton = (RadioButton)findViewById(selectRadioGroup.getCheckedRadioButtonId());
     }
 
     public CategoryDialog(Context context, View.OnClickListener selectBtnListener, View.OnClickListener cancleBtnListener) {
@@ -38,11 +36,12 @@ public class CategoryDialog extends Dialog {
         this.cancleBtnListener = cancleBtnListener;
     }
 
-    public RadioButton getSelectRadioButton() {
-        return selectRadioButton;
+    public String getSelectRadioButton() {
+        return selectRadioButton.getText().toString();
     }
 
-    public void setSelectRadioButton(RadioButton selectRadioButton) {
-        this.selectRadioButton = selectRadioButton;
+    public void setSelectRadioButton() {
+        selectRadioGroup = (RadioGroup)findViewById(R.id.dialog_category_radioGroup);
+        this.selectRadioButton = (RadioButton)findViewById(selectRadioGroup.getCheckedRadioButtonId());;
     }
 }

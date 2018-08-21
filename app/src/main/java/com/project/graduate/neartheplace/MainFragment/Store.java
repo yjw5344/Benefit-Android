@@ -8,10 +8,10 @@ public class Store {
     private String telephone;
     private String category;
     private String imgSrc;
-    private String latitude;
-    private String longitude;
+    private float latitude;
+    private float longitude;
 
-    public Store(String company, String branch, String address, String telephone, String category, String imgSrc, String latitude, String longitude) {
+    public Store(String company, String branch, String address, String telephone, String category, String imgSrc, float latitude, float longitude) {
         this.company = company;
         this.branch = branch;
         this.address = address;
@@ -70,19 +70,19 @@ public class Store {
         this.imgSrc = imgSrc;
     }
 
-    public String getLatitude() {
+    public float getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(float latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public float getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(float longitude) {
         this.longitude = longitude;
     }
 }

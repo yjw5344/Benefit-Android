@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="350dp"
                 android:gravity="center"
-                android:text="혜택인"
+                android:text="혜택, 알고가즈아"
                 android:textSize="15pt" />
 
             <android.support.design.widget.TextInputLayout

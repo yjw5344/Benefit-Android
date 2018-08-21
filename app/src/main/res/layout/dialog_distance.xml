@@ -36,7 +36,7 @@
                 android:id="@+id/dialog_distance_index1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="100m"
+                android:text="300m"
                 android:textStyle="bold"/>
 
             <RadioButton
@@ -60,7 +60,7 @@
                 android:id="@+id/dialog_distance_index4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="5km"
+                android:text="3km"
                 android:textStyle="bold"
                 android:layout_marginTop="5dp"/>
 

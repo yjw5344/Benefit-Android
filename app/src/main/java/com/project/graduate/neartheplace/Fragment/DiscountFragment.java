@@ -256,16 +256,14 @@ public class DiscountFragment extends Fragment {
                     telecomLGU = teleList.getJSONObject(2).getString("discount");
 
                     discountList.add(new DiscountInfo(company,telecomKT,telecomSKT,telecomLGU,army));
-                    if(mcatagory.equals("기타")){
-                        discountList.add(new DiscountInfo("시험","혜택 없음","혜택 없음","혜택 없음","토익 : 응시료 50% 할인\n오픽 : 응시료 30% 할인"));
-                        discountList.add(new DiscountInfo("금융","혜택 없음","혜택 없음","혜택 없음","혜택없음"));
-                    }
                 }
-
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-
+            if(mcatagory.equals("기타")){
+                discountList.add(new DiscountInfo("시험","혜택 없음","혜택 없음","혜택 없음","토익 : 응시료 50% 할인\n오픽 : 응시료 30% 할인"));
+                discountList.add(new DiscountInfo("금융","혜택 없음","혜택 없음","혜택 없음","혜택없음"));
+            }
             adapter = new DiscountListAdapter(getActivity(), discountList);
             listView.setAdapter(adapter);
         }

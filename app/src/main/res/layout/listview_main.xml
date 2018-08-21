@@ -2,14 +2,14 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="120dp"
     android:orientation="horizontal"
     android:weightSum="1">
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.4">
+        android:layout_height="match_parent"
+        android:layout_weight="0.3">
 
         <ImageView
             android:id="@+id/mainImg"
@@ -24,29 +24,33 @@
 
     <LinearLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.6"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:layout_weight="0.7"
+        android:orientation="vertical"
+        android:weightSum="1">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_weight="0.5"
+            android:gravity="left">
 
             <TextView
                 android:id="@+id/listCompany"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="업체"
-                android:textSize="9pt"/>
+                android:textSize="8pt"/>
 
             <TextView
                 android:id="@+id/listBranch"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="지점"
-                android:textSize="9pt"
+                android:textSize="6pt"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="10dp"/>
 
@@ -54,23 +58,25 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:orientation="horizontal"
-            android:layout_marginLeft="30dp">
+            android:layout_marginLeft="10dp"
+            android:layout_weight="0.5"
+            android:gravity="center_vertical">
 
             <TextView
                 android:id="@+id/listAddress"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="주소"
-                android:textSize="9pt"/>
+                android:textSize="5pt"/>
 
             <TextView
                 android:id="@+id/listTelephone"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="전화번호"
-                android:textSize="9pt"
+                android:textSize="5pt"
                 android:layout_marginLeft="20dp"
                 android:layout_marginRight="10dp"/>
 
