@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.project.graduate.neartheplace.Board.BoardDialog;
 import com.project.graduate.neartheplace.Board.BoardListAdapter;
 import com.project.graduate.neartheplace.Board.BoardText;
+import com.project.graduate.neartheplace.DiscountInfo.DiscountBankDialog;
 import com.project.graduate.neartheplace.DiscountInfo.DiscountDialog;
 import com.project.graduate.neartheplace.DiscountInfo.DiscountInfo;
 import com.project.graduate.neartheplace.DiscountInfo.DiscountListAdapter;
@@ -51,6 +52,7 @@ public class DiscountFragment extends Fragment {
     private ListView            listView;
     private DiscountListAdapter adapter;
     private DiscountDialog      dialog;
+    private DiscountBankDialog  bankDialog;
     private String              category;
 
 
@@ -171,11 +173,25 @@ public class DiscountFragment extends Fragment {
     }
 
     public void setDialog(DiscountInfo selectItem){
-        dialog = new DiscountDialog(getActivity(), closeListener, selectItem);
-        dialog.setCancelable(true);
-        dialog.getWindow().setGravity(Gravity.CENTER);
-        dialog.show();
+        if(selectItem.getCompany().equals("금융")){
+            bankDialog = new DiscountBankDialog(getActivity(),mcloseListener);
+            bankDialog.setCancelable(true);
+            bankDialog.getWindow().setGravity(Gravity.CENTER);
+            bankDialog.show();
+        }else{
+            dialog = new DiscountDialog(getActivity(), closeListener, selectItem);
+            dialog.setCancelable(true);
+            dialog.getWindow().setGravity(Gravity.CENTER);
+            dialog.show();
+        }
     }
+
+    private View.OnClickListener mcloseListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            bankDialog.dismiss();
+        }
+    };
 
     private View.OnClickListener closeListener = new View.OnClickListener() {
         @Override
@@ -241,8 +257,8 @@ public class DiscountFragment extends Fragment {
 
                     discountList.add(new DiscountInfo(company,telecomKT,telecomSKT,telecomLGU,army));
                     if(mcatagory.equals("기타")){
-                        discountList.add(new DiscountInfo("시험","혜택 없음","혜택 없음","혜택 없음",""));
-                        discountList.add(new DiscountInfo("시험","혜택 없음","혜택 없음","혜택 없음","토익 : 응시료 50% 할인 \n오픽 : 응시료 30% 할인"));
+                        discountList.add(new DiscountInfo("시험","혜택 없음","혜택 없음","혜택 없음","토익 : 응시료 50% 할인\n오픽 : 응시료 30% 할인"));
+                        discountList.add(new DiscountInfo("금융","혜택 없음","혜택 없음","혜택 없음","혜택없음"));
                     }
                 }
 
