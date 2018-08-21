@@ -324,8 +324,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (success) {
 
-                Toast.makeText(LoginActivity.this, mAuthTask.mEmail, Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(LoginActivity.this, mAuthTask.mEmail, Toast.LENGTH_SHORT).show();
                 // 로그인 성공
                 Intent connectMainActicity = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(connectMainActicity);

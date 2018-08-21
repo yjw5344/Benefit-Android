@@ -14,6 +14,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
         android:text="업체"
-        android:textSize="11pt" />
+        android:textSize="10pt" />
 
 </LinearLayout>
