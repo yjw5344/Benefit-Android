@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
@@ -28,6 +29,7 @@ import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.project.graduate.neartheplace.MainFragment.CategoryDialog;
 import com.project.graduate.neartheplace.MainFragment.DistanceDialog;
+import com.project.graduate.neartheplace.MainFragment.LocationForm;
 import com.project.graduate.neartheplace.MainFragment.MainDialog;
 import com.project.graduate.neartheplace.MainFragment.MainListAdapter;
 import com.project.graduate.neartheplace.MainFragment.Store;
@@ -39,6 +41,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +53,7 @@ import okhttp3.Response;
 public class MainFragment extends Fragment {
 
     private FusedLocationProviderClient fusedLocationProviderClient;
-    public static final int REQUEST_CODE_PERMISSIONS = 1;
+    private static final int REQUEST_CODE_PERMISSIONS = 1;
     private Button          mainCategoryBtn;
     private Button          mainDistanceBtn;
     private ImageButton     mainMapBtn;
@@ -62,8 +65,9 @@ public class MainFragment extends Fragment {
     private DistanceDialog  distanceDialog;
     private String          selectDistance;
     private String          selectCategory;
-    private float           latitude;
-    private float           longitude;
+    private Double           latitude;
+    private Double           longitude;
+    private List<LocationForm> locationList;
 
 
     @Override
@@ -80,10 +84,12 @@ public class MainFragment extends Fragment {
         listView = (ListView) view.findViewById(R.id.mainListview);
 
         // 초기 데이터 default 설정!
+
+
         selectDistance = "1km";
         selectCategory = "음식";
-        latitude = 0.0f;
-        longitude = 0.0f;
+        latitude = 0.0;
+        longitude = 0.0;
 
         getLocation();
 
@@ -105,6 +111,9 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent connectMapActicity = new Intent(getActivity(), MapsActivity.class );
+                connectMapActicity.putParcelableArrayListExtra("location", (ArrayList<? extends Parcelable>) locationList);
+                connectMapActicity.putExtra("latitude",latitude);
+                connectMapActicity.putExtra("longitude",longitude);
                 startActivity(connectMapActicity);
             }
         });
@@ -121,7 +130,7 @@ public class MainFragment extends Fragment {
     }
 
     public void makeMainDialog(Store selectItem){
-        mainDialog = new MainDialog(getActivity(), mainCloseBtn, selectItem);
+        mainDialog = new MainDialog(getActivity(), mainCloseBtn, selectItem, userToken);
         mainDialog.setCancelable(true);
         mainDialog.getWindow().setGravity(Gravity.CENTER);
         mainDialog.show();
@@ -177,13 +186,10 @@ public class MainFragment extends Fragment {
         }
     };
 
-    public void GetStoreData(double mlatitude, double mlogitude){
+    public void GetStoreData(Double mlatitude, Double mlogitude){
 
-
-//        latitude = Double.toString(mlatitude);
-//        longitude = Double.toString(mlogitude);
-        latitude = (float)mlatitude;
-        longitude = (float)mlogitude;
+        latitude = mlatitude;
+        longitude = mlogitude;
 
         GetStoreInfo getStoreInfo = new GetStoreInfo(selectCategory,selectDistance,latitude,longitude);
         getStoreInfo.execute();
@@ -193,10 +199,10 @@ public class MainFragment extends Fragment {
 
         String mCategory;
         float mDistance;
-        float mLatitude;
-        float mLongitude;
+        Double mLatitude;
+        Double mLongitude;
 
-        public GetStoreInfo(String selectCategory, String selectDistance, float latitude, float longitude) {
+        public GetStoreInfo(String selectCategory, String selectDistance, Double latitude, Double longitude) {
             this.mCategory = selectCategory;
             this.mLatitude = latitude;
             this.mLongitude = longitude;
@@ -238,11 +244,13 @@ public class MainFragment extends Fragment {
         @Override
         protected void onPostExecute(JSONObject jsonObject) {
             List<Store> storeList = new ArrayList<Store>();
+            locationList = new ArrayList<LocationForm>();
             try {
                 JSONArray dataList = new JSONArray(jsonObject.getString("data"));
                 for(int i = 0 ; i < dataList.length() ; i++){
                     JSONObject targetData = dataList.getJSONObject(i);
-                    storeList.add(new Store( targetData.getString("company").toString(), targetData.getString("branch").toString(),targetData.getString("address").toString(),targetData.getString("telephone").toString(), targetData.getString("category").toString(),targetData.getString("img").toString(), Float.parseFloat(targetData.getString("latitude").toString()) , Float.parseFloat(targetData.getString("longitude").toString()) ));
+                    storeList.add(new Store( targetData.getString("company").toString(), targetData.getString("branch").toString(),targetData.getString("address").toString(),targetData.getString("telephone").toString(), targetData.getString("category").toString(),targetData.getString("img").toString(), Double.parseDouble(targetData.getString("latitude").toString()) , Double.parseDouble(targetData.getString("longitude").toString()) ));
+                    locationList.add(new LocationForm(Double.parseDouble(targetData.getString("latitude").toString()) , Double.parseDouble(targetData.getString("longitude").toString()),targetData.getString("company").toString(),targetData.getString("branch").toString(),targetData.getString("address").toString()));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -279,8 +287,6 @@ public class MainFragment extends Fragment {
                 public void onSuccess(Location location) {
                     if (location != null) {
                         GetStoreData(location.getLatitude(),location.getLongitude());
-                        Log.d("check1-1",Double.toString(location.getLatitude()));
-                        Log.d("check1-2",Double.toString(location.getLongitude()));
                     }
                 }
             });
@@ -301,14 +307,13 @@ public class MainFragment extends Fragment {
                         public void onSuccess(Location location) {
                             if (location != null) {
                                 GetStoreData(location.getLatitude(),location.getLongitude());
-                                Log.d("check2-1",Double.toString(location.getLatitude()));
-                                Log.d("check2-2",Double.toString(location.getLongitude()));
                             }
                         }
                     });
                 }
         }
     }
+
 }
 
 
