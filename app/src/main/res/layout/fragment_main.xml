@@ -38,15 +38,7 @@
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.2"/>
-
-            <ImageButton
-                android:id="@+id/mainSearchBtn"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:src="@drawable/icon_fragment_main_search"
-                android:layout_weight="0.15"
-                android:layout_gravity="right"/>
+                android:layout_weight="0.3"/>
 
             <ImageButton
                 android:id="@+id/mainMapBtn"

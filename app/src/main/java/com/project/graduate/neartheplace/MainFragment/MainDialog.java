@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.project.graduate.neartheplace.R;
 
 public class MainDialog extends Dialog {
@@ -33,9 +34,11 @@ public class MainDialog extends Dialog {
         TextView vAddress = (TextView)findViewById(R.id.dialog_main_address);
         TextView vTelephone = (TextView)findViewById(R.id.dialog_main_telephone);
 
-        //todo : 이미지뷰
         ImageView vImg = (ImageView)findViewById(R.id.dialog_main_img);
-        vImg.setImageResource(R.drawable.test_image);
+        Glide.with(getContext())
+                .load(storeDate.getImgSrc())
+                .override(180,230)
+                .into(vImg);
 
         closeBtn.setOnClickListener(closeListener);
         vCompany.setText(storeDate.getCompany());

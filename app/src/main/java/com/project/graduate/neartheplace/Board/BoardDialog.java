@@ -38,6 +38,7 @@ public class BoardDialog extends Dialog {
         userId.setText(mselectItem.getUserID());
         boardContext.setText(mselectItem.getBoardContext());
 
+
     }
 
     public BoardDialog(Context context, View.OnClickListener CreateCloseListener,View.OnClickListener deleteTextBtnListener, BoardText selectItem, String userToken) {

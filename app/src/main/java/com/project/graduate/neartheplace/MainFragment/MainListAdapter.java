@@ -9,6 +9,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.project.graduate.neartheplace.Board.BoardText;
 import com.project.graduate.neartheplace.R;
 
@@ -50,10 +51,11 @@ public class MainListAdapter extends BaseAdapter {
         TextView listAddress = (TextView) v.findViewById(R.id.listAddress);
         TextView listTelephone = (TextView) v.findViewById(R.id.listTelephone);
 
-        //todo : 이미지 뷰
+
         ImageView listImg = (ImageView) v.findViewById(R.id.mainImg);
-        listImg.setImageResource(R.drawable.test_image);
-//        setImageView(storeList.get(i).getImgSrc());
+        Glide.with(context)
+                .load(storeList.get(i).getImgSrc())
+                .into(listImg);
 
         listCompany.setText(storeList.get(i).getCompany());
         listBranch.setText(storeList.get(i).getBranch());

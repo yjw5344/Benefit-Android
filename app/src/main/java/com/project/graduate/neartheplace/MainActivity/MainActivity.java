@@ -1,10 +1,20 @@
 package com.project.graduate.neartheplace.MainActivity;
 
+import android.Manifest;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTabHost;
 import android.os.Bundle;
 import android.widget.TabHost;
+import android.widget.Toast;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.project.graduate.neartheplace.Fragment.BoardFragment;
 import com.project.graduate.neartheplace.Fragment.DiscountFragment;
 import com.project.graduate.neartheplace.Fragment.CalendarFragment;
@@ -89,6 +99,4 @@ public class MainActivity extends FragmentActivity{
 //        });
 
     }
-
-
 }
