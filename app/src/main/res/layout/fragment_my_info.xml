@@ -170,32 +170,34 @@
                     android:textColor="#000000"/>
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:weightSum="1"
-                android:orientation="horizontal"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp">
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.2"
-                    android:gravity="center"
-                    android:text="생일"
-                    android:textSize="8pt"
-                    android:textColor="#696969"/>
-                <TextView
-                    android:id="@+id/myInfoBirth"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="0.6"
-                    android:layout_marginLeft="15dp"
-                    android:text="사용자생일(미구현)"
-                    android:textSize="8pt"
-                    android:textColor="#000000"/>
-            </LinearLayout>
+            <!-- 생일 제거 -> 추후에 구현 -->
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:weightSum="1"-->
+                <!--android:orientation="horizontal"-->
+                <!--android:layout_marginLeft="20dp"-->
+                <!--android:layout_marginTop="20dp">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="0.2"-->
+                    <!--android:gravity="center"-->
+                    <!--android:text="생일"-->
+                    <!--android:textSize="8pt"-->
+                    <!--android:textColor="#696969"/>-->
+                <!--<TextView-->
+                    <!--android:id="@+id/myInfoBirth"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_weight="0.6"-->
+                    <!--android:layout_marginLeft="15dp"-->
+                    <!--android:text="사용자생일(미구현)"-->
+                    <!--android:textSize="8pt"-->
+                    <!--android:textColor="#000000"/>-->
+            <!--</LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -211,13 +213,14 @@
                     android:layout_marginRight="30dp"
                     android:text="로그아웃"/>
 
-                <Button
-                    android:id="@+id/myInfoModify"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="50dp"
-                    android:layout_marginRight="30dp"
-                    android:text="수정"/>
+                <!-- 수정 버튼 미구현 제거 -> 추후에 구현 -->
+                <!--<Button-->
+                    <!--android:id="@+id/myInfoModify"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_marginTop="50dp"-->
+                    <!--android:layout_marginRight="30dp"-->
+                    <!--android:text="수정"/>-->
 
             </LinearLayout>
 

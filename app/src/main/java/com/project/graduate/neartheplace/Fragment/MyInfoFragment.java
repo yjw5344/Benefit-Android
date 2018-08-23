@@ -31,7 +31,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class MyInfoFragment extends Fragment {
 
-    private Button   modifyBtn;
+//    private Button   modifyBtn;
     private Button   logoutBtn;
     private String   userToken;
     private TextView mEmail;
@@ -39,7 +39,7 @@ public class MyInfoFragment extends Fragment {
     private TextView mNickName;
     private TextView mGender;
     private TextView mPosition;
-    private Intent   connectModifyActivity;
+//    private Intent   connectModifyActivity;
 
 
     @Override
@@ -49,7 +49,7 @@ public class MyInfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_my_info, container, false);
 
         userToken = getArguments().getString("userToken");
-        connectModifyActivity = new Intent(getActivity(), MyInfoModifyActivity.class);
+//        connectModifyActivity = new Intent(getActivity(), MyInfoModifyActivity.class);
 
 
         mEmail = (TextView) view.findViewById(R.id.myInfoEmail);
@@ -61,15 +61,15 @@ public class MyInfoFragment extends Fragment {
         GetUserInfo getUserInfo = new GetUserInfo();
         getUserInfo.execute();
 
-        modifyBtn = (Button) view.findViewById(R.id.myInfoModify);
+//        modifyBtn = (Button) view.findViewById(R.id.myInfoModify);
         logoutBtn = (Button) view.findViewById(R.id.myInfoLogout);
 
-        modifyBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(connectModifyActivity);
-            }
-        });
+//        modifyBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                startActivity(connectModifyActivity);
+//            }
+//        });
 
         logoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,7 +118,7 @@ public class MyInfoFragment extends Fragment {
         protected void onPostExecute(JSONObject jsonObject) {
             JSONObject userInfoJson = new JSONObject();
             try {
-                //todo: 사용자 생일의 경우 아직 미구현
+
                 userInfoJson = jsonObject.getJSONObject("data");
                 mEmail.setText(userInfoJson.getString("email"));
                 mName.setText(userInfoJson.getString("name"));
@@ -126,11 +126,12 @@ public class MyInfoFragment extends Fragment {
                 mGender.setText(userInfoJson.getString("gender"));
                 mPosition.setText(userInfoJson.getString("posi"));
 
-                connectModifyActivity.putExtra("email",userInfoJson.getString("email"));
-                connectModifyActivity.putExtra("name",userInfoJson.getString("name"));
-                connectModifyActivity.putExtra("nickname",userInfoJson.getString("nickname"));
-                connectModifyActivity.putExtra("gender",userInfoJson.getString("gender"));
-                connectModifyActivity.putExtra("posi",userInfoJson.getString("posi"));
+                //todo: 사용자 생일의 경우 아직 미구현
+//                connectModifyActivity.putExtra("email",userInfoJson.getString("email"));
+//                connectModifyActivity.putExtra("name",userInfoJson.getString("name"));
+//                connectModifyActivity.putExtra("nickname",userInfoJson.getString("nickname"));
+//                connectModifyActivity.putExtra("gender",userInfoJson.getString("gender"));
+//                connectModifyActivity.putExtra("posi",userInfoJson.getString("posi"));
 
             } catch (JSONException e) {
                 e.printStackTrace();

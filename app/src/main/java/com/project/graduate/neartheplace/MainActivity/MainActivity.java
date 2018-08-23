@@ -57,9 +57,10 @@ public class MainActivity extends FragmentActivity{
         tabSpec3.setIndicator("메인");
         host.addTab(tabSpec3, MainFragment.class, bundle);
 
-        TabHost.TabSpec tabSpec4 = host.newTabSpec("tab4");
-        tabSpec4.setIndicator("달력");
-        host.addTab(tabSpec4, CalendarFragment.class, bundle);
+        // todo : 미구현 삭제 ( 추후에 구현 ! )
+//        TabHost.TabSpec tabSpec4 = host.newTabSpec("tab4");
+//        tabSpec4.setIndicator("달력");
+//        host.addTab(tabSpec4, CalendarFragment.class, bundle);
 
         TabHost.TabSpec tabSpec5= host.newTabSpec("tab5");
         tabSpec5.setIndicator("내 정보");

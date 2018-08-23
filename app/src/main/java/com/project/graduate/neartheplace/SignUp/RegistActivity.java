@@ -43,9 +43,9 @@ public class RegistActivity extends AppCompatActivity {
     private RadioButton         mRegist_genderSelect;
     private RadioGroup          mRegist_position;
     private RadioButton         mRegist_positionSelect;
-    private Spinner             mRegist_yearSpinner;
-    private Spinner             mRegist_monthSpinner;
-    private Spinner             mRegist_daySpinner;
+//    private Spinner             mRegist_yearSpinner;
+//    private Spinner             mRegist_monthSpinner;
+//    private Spinner             mRegist_daySpinner;
     private ArrayList<EditText> editTexts;
 
 
@@ -62,9 +62,9 @@ public class RegistActivity extends AppCompatActivity {
         mRegist_email           = (EditText) findViewById(R.id.regist_email);
         mRegist_password        = (EditText) findViewById(R.id.regist_password);
         mRegist_password2       = (EditText) findViewById(R.id.regist_password2);
-        mRegist_yearSpinner     = (Spinner) findViewById(R.id.regist_birthYear);
-        mRegist_monthSpinner    = (Spinner) findViewById(R.id.regist_birthMonth);
-        mRegist_daySpinner      = (Spinner) findViewById(R.id.regist_birthDay);
+//        mRegist_yearSpinner     = (Spinner) findViewById(R.id.regist_birthYear);
+//        mRegist_monthSpinner    = (Spinner) findViewById(R.id.regist_birthMonth);
+//        mRegist_daySpinner      = (Spinner) findViewById(R.id.regist_birthDay);
         mRegist_gender          = (RadioGroup) findViewById(R.id.regist_gender);
         mRegist_genderSelect    = (RadioButton)findViewById(mRegist_gender.getCheckedRadioButtonId());
         mRegist_position        = (RadioGroup) findViewById(R.id.regist_position);
@@ -73,7 +73,7 @@ public class RegistActivity extends AppCompatActivity {
         editTexts = new ArrayList<EditText>();
 
         // Set the Birth Day Spinner
-        initSpinner();
+//        initSpinner();
 
         // Set the Regist finish Button
         mRegist_cancle.setOnClickListener(new View.OnClickListener() {
@@ -111,36 +111,36 @@ public class RegistActivity extends AppCompatActivity {
 
     }
 
-    private void initSpinner() {
-        int year = Calendar.getInstance().get(Calendar.YEAR);
-
-        ArrayList<Integer> bYear = new ArrayList<Integer>();
-        ArrayList<Integer> bMonth = new ArrayList<Integer>();
-        ArrayList<Integer> bDay = new ArrayList<Integer>();
-
-        for (int i = 0; i < 100; i++) {
-            bYear.add(year--);
-        }
-        for (int i = 1; i < 13; i++) {
-            bMonth.add(i);
-        }
-        for (int i = 1; i < 32; i++) {
-            bDay.add(i);
-        }
-
-        ArrayAdapter<Integer> yearAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, bYear);
-        ArrayAdapter<Integer> monthAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, bMonth);
-        ArrayAdapter<Integer> dayAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, bDay);
-
-        mRegist_yearSpinner.setAdapter(yearAdapter);
-        mRegist_yearSpinner.setSelection(0);
-
-        mRegist_monthSpinner.setAdapter(monthAdapter);
-        mRegist_monthSpinner.setSelection(0);
-
-        mRegist_daySpinner.setAdapter(dayAdapter);
-        mRegist_daySpinner.setSelection(0);
-    }
+//    private void initSpinner() {
+//        int year = Calendar.getInstance().get(Calendar.YEAR);
+//
+//        ArrayList<Integer> bYear = new ArrayList<Integer>();
+//        ArrayList<Integer> bMonth = new ArrayList<Integer>();
+//        ArrayList<Integer> bDay = new ArrayList<Integer>();
+//
+//        for (int i = 0; i < 100; i++) {
+//            bYear.add(year--);
+//        }
+//        for (int i = 1; i < 13; i++) {
+//            bMonth.add(i);
+//        }
+//        for (int i = 1; i < 32; i++) {
+//            bDay.add(i);
+//        }
+//
+//        ArrayAdapter<Integer> yearAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, bYear);
+//        ArrayAdapter<Integer> monthAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, bMonth);
+//        ArrayAdapter<Integer> dayAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, bDay);
+//
+//        mRegist_yearSpinner.setAdapter(yearAdapter);
+//        mRegist_yearSpinner.setSelection(0);
+//
+//        mRegist_monthSpinner.setAdapter(monthAdapter);
+//        mRegist_monthSpinner.setSelection(0);
+//
+//        mRegist_daySpinner.setAdapter(dayAdapter);
+//        mRegist_daySpinner.setSelection(0);
+//    }
 
     public boolean nullCheck(ArrayList<EditText> list){
 

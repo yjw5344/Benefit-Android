@@ -103,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // Sign Up - Dialog
     public void Dialog() {
-        dialog = new SignUp_CustomDialog(LoginActivity.this, registListener, naverListener, cancleListener);
+        dialog = new SignUp_CustomDialog(LoginActivity.this, registListener, cancleListener);
         dialog.setCancelable(true);
         dialog.getWindow().setGravity(Gravity.CENTER);
         dialog.show();
@@ -120,13 +120,13 @@ public class LoginActivity extends AppCompatActivity {
         }
     };
 
-    // Dialog - Naver 버튼 클릭 이벤트
-    private View.OnClickListener naverListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            Toast.makeText(LoginActivity.this, "네이버", Toast.LENGTH_SHORT).show();
-            dialog.dismiss();
-        }
-    };
+    // todo : Dialog - Naver 버튼 클릭 이벤트
+//    private View.OnClickListener naverListener = new View.OnClickListener() {
+//        public void onClick(View v) {
+//            Toast.makeText(LoginActivity.this, "네이버", Toast.LENGTH_SHORT).show();
+//            dialog.dismiss();
+//        }
+//    };
 
     // Dialog - cancle 버튼 클릭 이벤트
     private View.OnClickListener cancleListener = new View.OnClickListener() {

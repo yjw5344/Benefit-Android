@@ -17,7 +17,6 @@ public class BoardDialog extends Dialog {
     private View.OnClickListener    mCreateCloseListener;
     private View.OnClickListener    mdeleteTextBtnListener;
     private BoardText               mselectItem;
-    private String                  userToken;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,22 +30,24 @@ public class BoardDialog extends Dialog {
         TextView boardTitle     = (TextView)findViewById(R.id.createBoardTitle);
         TextView boardContext   = (TextView)findViewById(R.id.createBoardContext);
 
+
+        if(mselectItem.getFlag() == 0){
+            deleteTextBtn.setVisibility(View.INVISIBLE);
+        }
+
         craeteCloseBtn.setOnClickListener(mCreateCloseListener);
         deleteTextBtn.setOnClickListener(mdeleteTextBtnListener);
         boardTime.setText(mselectItem.getBoardTime());
         boardTitle.setText(mselectItem.getBoardTitle());
         userId.setText(mselectItem.getUserID());
         boardContext.setText(mselectItem.getBoardContext());
-
-
     }
 
-    public BoardDialog(Context context, View.OnClickListener CreateCloseListener,View.OnClickListener deleteTextBtnListener, BoardText selectItem, String userToken) {
+    public BoardDialog(Context context, View.OnClickListener CreateCloseListener,View.OnClickListener deleteTextBtnListener, BoardText selectItem) {
         super(context);
         this.mCreateCloseListener   = CreateCloseListener;
         this.mselectItem            = selectItem;
         this.mdeleteTextBtnListener = deleteTextBtnListener;
-        this.userToken              = userToken;
     }
 
     public BoardText getMselectItem() {

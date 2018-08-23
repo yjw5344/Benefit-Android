@@ -17,6 +17,7 @@ import android.widget.Toast;
 import com.project.graduate.neartheplace.Board.BoardCreate;
 import com.project.graduate.neartheplace.Board.BoardDialog;
 import com.project.graduate.neartheplace.Board.BoardListAdapter;
+import com.project.graduate.neartheplace.Board.BoardSearchDialog;
 import com.project.graduate.neartheplace.Board.BoardText;
 import com.project.graduate.neartheplace.R;
 
@@ -28,8 +29,10 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 
@@ -40,6 +43,7 @@ public class BoardFragment extends Fragment {
     private ListView            listView;
     private BoardListAdapter    adapter;
     private BoardDialog         dialog;
+    private BoardSearchDialog   searchDialog;
     private ImageButton         createBtn;
     private ImageButton         refreshBtn;
     private ImageButton         searchBtn;
@@ -91,19 +95,17 @@ public class BoardFragment extends Fragment {
         searchBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // todo : 검색 구현
-                Toast.makeText(getActivity(), "검색 구현 예정", Toast.LENGTH_SHORT).show();
+                SearchDialog();
             }
         });
 
         //todo : 글 수정 ( 나중에 시간나면 구현 !!! )
 
-
         return view;
     }
 
     public void Dialog(BoardText selectItem) {
-        dialog = new BoardDialog(getActivity(), CreateCloseListener, deleteTextBtnListener, selectItem, userToken);
+        dialog = new BoardDialog(getActivity(), CreateCloseListener, deleteTextBtnListener, selectItem);
         dialog.setCancelable(true);
         dialog.getWindow().setGravity(Gravity.CENTER);
         dialog.show();
@@ -124,6 +126,33 @@ public class BoardFragment extends Fragment {
             refreshText();
 
             dialog.dismiss();
+        }
+    };
+
+    public void SearchDialog(){
+        searchDialog = new BoardSearchDialog(getActivity(), searchCloseBtnListener, searchSearchBtnListener);
+        searchDialog.setCancelable(true);
+        searchDialog.getWindow().setGravity(Gravity.CENTER);
+        searchDialog.show();
+
+    }
+
+    private View.OnClickListener searchCloseBtnListener = new View.OnClickListener() {
+        public void onClick(View v) {
+            searchDialog.dismiss();
+        }
+    };
+
+    private View.OnClickListener searchSearchBtnListener = new View.OnClickListener() {
+        public void onClick(View v) {
+
+            //todo : JSON 수정
+            Toast.makeText(getActivity(),"작동",Toast.LENGTH_SHORT).show();
+
+//            SearchBoardText searchBoardText = new SearchBoardText(searchDialog.getTargetText());
+//            searchBoardText.execute();
+
+            searchDialog.dismiss();
         }
     };
 
@@ -157,7 +186,7 @@ public class BoardFragment extends Fragment {
                 JSONArray textList = new JSONArray(jsonObject.getString("data"));
                 for(int i = 0; i < textList.length(); i++){
                     JSONObject textData = textList.getJSONObject(i);
-                    boardList.add(new BoardText(textData.getString("title"),textData.getString("content"),textData.getString("writetime"), textData.getString("author"),textData.getString("_id").toString()));
+                    boardList.add(new BoardText(textData.getString("title"),textData.getString("content"),textData.getString("writetime"), textData.getString("author"),textData.getString("_id").toString(), textData.getInt("flag")));
                 }
 
             } catch (JSONException e) {
@@ -227,6 +256,66 @@ public class BoardFragment extends Fragment {
         @Override
         protected void onCancelled() {
             Toast.makeText(getActivity(), "삭제실패", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public class SearchBoardText extends AsyncTask<Void, Void, JSONObject> {
+
+        String target;
+
+        public SearchBoardText(String target) {
+            this.target = target;
+        }
+
+        @Override
+        protected JSONObject doInBackground(Void... voids) {
+            OkHttpClient client = new OkHttpClient();
+
+            RequestBody formBody = new FormBody.Builder()
+                    .add("text", target)
+                    .build();
+
+            Request request = new Request.Builder()
+                    .url("http://13.125.61.58:9090/board/search")
+                    .header("X-Access-Token",userToken)
+                    .post(formBody)
+                    .build();
+
+            Response responseClient = null;
+            JSONObject getJson = null;
+            try {
+                responseClient = client.newCall(request).execute();
+                getJson = new JSONObject(responseClient.body().string());
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return getJson;
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject jsonObject) {
+            List<BoardText> boardList = new ArrayList<BoardText>();
+            try {
+                JSONArray textList = new JSONArray(jsonObject.getString("data"));
+                for(int i = 0; i < textList.length(); i++){
+                    JSONObject textData = textList.getJSONObject(i);
+                    boardList.add(new BoardText(textData.getString("title"),textData.getString("content"),textData.getString("writetime"), textData.getString("author"),textData.getString("_id").toString(), textData.getInt("flag")));
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            adapter = new BoardListAdapter(getActivity(), boardList);
+            listView.setAdapter(adapter);
+        }
+
+        @Override
+        protected void onCancelled() {
+            Log.d("BoardFragment_GetText","BoardFragment Connect Fail");
+//            Toast.makeText(getActivity(), "통신실패", Toast.LENGTH_SHORT).show();
         }
     }
 
