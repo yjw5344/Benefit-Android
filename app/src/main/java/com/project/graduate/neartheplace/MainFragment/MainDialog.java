@@ -43,7 +43,7 @@ public class MainDialog extends Dialog {
     private TextView vBranch ;
     private TextView vAddress;
     private TextView vTelephone;
-    private GoogleMap mMap;
+//    private GoogleMap mMap;
 
 
     @Override

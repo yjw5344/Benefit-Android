@@ -1,9 +1,12 @@
 package com.project.graduate.neartheplace.Fragment;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -50,19 +53,19 @@ public class MainFragment extends Fragment {
 
     private FusedLocationProviderClient fusedLocationProviderClient;
     public static final int REQUEST_CODE_PERMISSIONS = 1;
-    private Button          mainCategoryBtn;
-    private Button          mainDistanceBtn;
-    private ImageButton     mainMapBtn;
-    private String          userToken;
-    private ListView        listView;
+    private Button mainCategoryBtn;
+    private Button mainDistanceBtn;
+    private ImageButton mainMapBtn;
+    private String userToken;
+    private ListView listView;
     private MainListAdapter adapter;
-    private MainDialog      mainDialog;
-    private CategoryDialog  categoryDialog;
-    private DistanceDialog  distanceDialog;
-    private String          selectDistance;
-    private String          selectCategory;
-    private Double           latitude;
-    private Double           longitude;
+    private MainDialog mainDialog;
+    private CategoryDialog categoryDialog;
+    private DistanceDialog distanceDialog;
+    private String selectDistance;
+    private String selectCategory;
+    private Double latitude;
+    private Double longitude;
     private List<LocationForm> locationList;
 
 
@@ -104,10 +107,10 @@ public class MainFragment extends Fragment {
         mainMapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent connectMapActicity = new Intent(getActivity(), MapsActivity.class );
+                Intent connectMapActicity = new Intent(getActivity(), MapsActivity.class);
                 connectMapActicity.putParcelableArrayListExtra("location", (ArrayList<? extends Parcelable>) locationList);
-                connectMapActicity.putExtra("latitude",latitude);
-                connectMapActicity.putExtra("longitude",longitude);
+                connectMapActicity.putExtra("latitude", latitude);
+                connectMapActicity.putExtra("longitude", longitude);
                 startActivity(connectMapActicity);
             }
         });
@@ -123,7 +126,7 @@ public class MainFragment extends Fragment {
         return view;
     }
 
-    public void makeMainDialog(Store selectItem){
+    public void makeMainDialog(Store selectItem) {
         mainDialog = new MainDialog(getActivity(), mainCloseBtn, selectItem, userToken);
         mainDialog.setCancelable(true);
         mainDialog.getWindow().setGravity(Gravity.CENTER);
@@ -158,7 +161,7 @@ public class MainFragment extends Fragment {
         }
     };
 
-    public void makeDistanceDialog(){
+    public void makeDistanceDialog() {
         distanceDialog = new DistanceDialog(getActivity(), distanceSelectBtn, distanceCloseBtn);
         distanceDialog.setCancelable(true);
         distanceDialog.getWindow().setGravity(Gravity.CENTER);
@@ -180,16 +183,16 @@ public class MainFragment extends Fragment {
         }
     };
 
-    public void GetStoreData(Double mlatitude, Double mlogitude){
+    public void GetStoreData(Double mlatitude, Double mlogitude) {
 
         latitude = mlatitude;
         longitude = mlogitude;
 
-        GetStoreInfo getStoreInfo = new GetStoreInfo(selectCategory,selectDistance,latitude,longitude);
+        GetStoreInfo getStoreInfo = new GetStoreInfo(selectCategory, selectDistance, latitude, longitude);
         getStoreInfo.execute();
     }
 
-    public class GetStoreInfo extends AsyncTask<Void, Void, JSONObject>{
+    public class GetStoreInfo extends AsyncTask<Void, Void, JSONObject> {
 
         String mCategory;
         float mDistance;
@@ -201,13 +204,13 @@ public class MainFragment extends Fragment {
             this.mLatitude = latitude;
             this.mLongitude = longitude;
 
-            if(selectDistance.equals("300m")){
+            if (selectDistance.equals("300m")) {
                 this.mDistance = 300;
-            }else if(selectDistance.equals("500m")){
+            } else if (selectDistance.equals("500m")) {
                 this.mDistance = 500;
-            }else if(selectDistance.equals("1km")){
+            } else if (selectDistance.equals("1km")) {
                 this.mDistance = 1000;
-            }else if(selectDistance.equals("3km")){
+            } else if (selectDistance.equals("3km")) {
                 this.mDistance = 3000;
             }
         }
@@ -217,8 +220,9 @@ public class MainFragment extends Fragment {
 
             OkHttpClient client = new OkHttpClient();
             Request request = new Request.Builder()
-                    .url("http://13.125.61.58:9090/map/" + mLatitude + "/" + mLongitude + "/" + mCategory +"?distance=" + mDistance)
-                    .header("X-Access-Token",userToken)
+                    .url("http://13.125.61.58:9090/map/" + mLatitude + "/" + mLongitude + "/" + mCategory + "?distance=" + mDistance)
+//                    .url("http://13.125.61.58:9090/map/" + "37.561206" + "/" + "126.986192" + "/" + mCategory +"?distance=" + mDistance)
+                    .header("X-Access-Token", userToken)
                     .build();
 
             Response responseClient = null;
@@ -241,10 +245,10 @@ public class MainFragment extends Fragment {
             locationList = new ArrayList<LocationForm>();
             try {
                 JSONArray dataList = new JSONArray(jsonObject.getString("data"));
-                for(int i = 0 ; i < dataList.length() ; i++){
+                for (int i = 0; i < dataList.length(); i++) {
                     JSONObject targetData = dataList.getJSONObject(i);
-                    storeList.add(new Store( targetData.getString("company").toString(), targetData.getString("branch").toString(),targetData.getString("address").toString(),targetData.getString("telephone").toString(), targetData.getString("category").toString(),targetData.getString("img").toString(), Double.parseDouble(targetData.getString("latitude").toString()) , Double.parseDouble(targetData.getString("longitude").toString()) ));
-                    locationList.add(new LocationForm(Double.parseDouble(targetData.getString("latitude").toString()) , Double.parseDouble(targetData.getString("longitude").toString()),targetData.getString("company").toString(),targetData.getString("branch").toString(),targetData.getString("address").toString()));
+                    storeList.add(new Store(targetData.getString("company").toString(), targetData.getString("branch").toString(), targetData.getString("address").toString(), targetData.getString("telephone").toString(), targetData.getString("category").toString(), targetData.getString("img").toString(), Double.parseDouble(targetData.getString("latitude").toString()), Double.parseDouble(targetData.getString("longitude").toString())));
+                    locationList.add(new LocationForm(Double.parseDouble(targetData.getString("latitude").toString()), Double.parseDouble(targetData.getString("longitude").toString()), targetData.getString("company").toString(), targetData.getString("branch").toString(), targetData.getString("address").toString()));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -256,11 +260,10 @@ public class MainFragment extends Fragment {
         @Override
         protected void onCancelled() {
             Toast.makeText(getActivity(), "통신실패", Toast.LENGTH_SHORT).show();
-            Log.d("Main", "ServerConnect Error");
         }
     }
 
-    public void getLocation(){
+    public void getLocation() {
 
         // fusedLocationAPI 사용을 위한 준비
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(getActivity());
@@ -311,6 +314,3 @@ public class MainFragment extends Fragment {
     }
 
 }
-
-
-
