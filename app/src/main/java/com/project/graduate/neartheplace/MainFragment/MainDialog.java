@@ -11,7 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.project.graduate.neartheplace.Board.BoardText;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.project.graduate.neartheplace.R;
 
 import org.json.JSONArray;
@@ -38,10 +43,8 @@ public class MainDialog extends Dialog {
     private TextView vBranch ;
     private TextView vAddress;
     private TextView vTelephone;
-    private String army;
-    private String SKT;
-    private String KT;
-    private String LGU;
+    private GoogleMap mMap;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +65,9 @@ public class MainDialog extends Dialog {
 
         closeBtn.setOnClickListener(closeListener);
 
+//        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
+//        mapFragment.getMapAsync(this);
+
         GetMainDialogDiscountInfo getMainDialogDiscountInfo = new GetMainDialogDiscountInfo(storeDate);
         getMainDialogDiscountInfo.execute();
 
@@ -73,6 +79,18 @@ public class MainDialog extends Dialog {
         this.storeDate = storeDate;
         this.userToken = userToken;
     }
+
+//    @Override
+//    public void onMapReady(GoogleMap googleMap) {
+//        mMap = googleMap;
+//
+//        MarkerOptions makerOptions = new MarkerOptions();
+//        makerOptions
+//                .position(new LatLng(storeDate.getLatitude(),storeDate.getLongitude()));
+//
+//        mMap.addMarker(makerOptions);
+//        googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(storeDate.getLatitude(),storeDate.getLongitude()),16));
+//    }
 
 
     public class GetMainDialogDiscountInfo extends AsyncTask<Void, Void, JSONObject>{

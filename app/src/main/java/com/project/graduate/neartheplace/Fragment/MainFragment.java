@@ -22,9 +22,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.project.graduate.neartheplace.MainFragment.CategoryDialog;
@@ -41,7 +38,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,7 +49,7 @@ import okhttp3.Response;
 public class MainFragment extends Fragment {
 
     private FusedLocationProviderClient fusedLocationProviderClient;
-    private static final int REQUEST_CODE_PERMISSIONS = 1;
+    public static final int REQUEST_CODE_PERMISSIONS = 1;
     private Button          mainCategoryBtn;
     private Button          mainDistanceBtn;
     private ImageButton     mainMapBtn;
@@ -84,8 +80,6 @@ public class MainFragment extends Fragment {
         listView = (ListView) view.findViewById(R.id.mainListview);
 
         // 초기 데이터 default 설정!
-
-
         selectDistance = "1km";
         selectCategory = "음식";
         latitude = 0.0;
@@ -282,11 +276,13 @@ public class MainFragment extends Fragment {
             return ;
         }else{
             // 퍼미션 권한이 있을 경우 실행
-            fusedLocationProviderClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
+            fusedLocationProviderClient.getLastLocation().addOnSuccessListener( getActivity(), new OnSuccessListener<Location>() {
                 @Override
                 public void onSuccess(Location location) {
                     if (location != null) {
                         GetStoreData(location.getLatitude(),location.getLongitude());
+                    }else{
+                        Log.d(" Error","위치가져오기 실패");
                     }
                 }
             });
@@ -302,7 +298,7 @@ public class MainFragment extends Fragment {
                 if (ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(getActivity(), android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
                     Toast.makeText(getActivity(), "권한 체크 거부 됨", Toast.LENGTH_SHORT).show();
                 }else{
-                    fusedLocationProviderClient.getLastLocation().addOnSuccessListener(new OnSuccessListener<Location>() {
+                    fusedLocationProviderClient.getLastLocation().addOnSuccessListener(getActivity(), new OnSuccessListener<Location>() {
                         @Override
                         public void onSuccess(Location location) {
                             if (location != null) {
