@@ -6,12 +6,18 @@ public class BoardText {
     String boardContext;
     String boardTime;
     String userID;
+    String data_id;
+    int    flag;
 
-    public BoardText(String boardTitle, String boardContext, String boardTime, String userID) {
+
+
+    public BoardText(String boardTitle, String boardContext, String boardTime, String userID, String data_id, int flag) {
         this.boardTitle = boardTitle;
         this.boardContext = boardContext;
         this.boardTime = boardTime;
         this.userID = userID;
+        this.data_id = data_id;
+        this.flag = flag;
     }
 
     public String getBoardTitle() {
@@ -44,5 +50,21 @@ public class BoardText {
 
     public void setUserID(String userID) {
         this.userID = userID;
+    }
+
+    public String getData_id() {
+        return data_id;
+    }
+
+    public void setData_id(String data_id) {
+        this.data_id = data_id;
+    }
+
+    public int getFlag() {
+        return flag;
+    }
+
+    public void setFlag(int flag) {
+        this.flag = flag;
     }
 }
