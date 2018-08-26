@@ -54,42 +54,42 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:orientation="vertical">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_marginLeft="15dp"-->
+        <!--android:layout_marginRight="15dp"-->
+        <!--android:layout_marginTop="20dp"-->
+        <!--android:orientation="vertical">-->
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="7dp"
-            android:gravity="left"
-            android:text="SNS 계정 회원가입"
-            android:textSize="8pt"
-            android:textStyle="bold" />
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="7dp"-->
+            <!--android:gravity="left"-->
+            <!--android:text="SNS 계정 회원가입"-->
+            <!--android:textSize="8pt"-->
+            <!--android:textStyle="bold" />-->
 
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="SNS 아이디를 이용하여 회원가입을 합니다"
-            android:textSize="6pt" />
+        <!--<TextView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:gravity="left"-->
+            <!--android:text="SNS 아이디를 이용하여 회원가입을 합니다"-->
+            <!--android:textSize="6pt" />-->
 
-        <Button
-            android:id="@+id/loginCustomDialog_naver"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="15dp"
-            android:text="네이버로 회원가입"
-            android:textSize="7pt" />
+        <!--<Button-->
+            <!--android:id="@+id/loginCustomDialog_naver"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_marginRight="15dp"-->
+            <!--android:text="네이버로 회원가입"-->
+            <!--android:textSize="7pt" />-->
 
-    </LinearLayout>
+    <!--</LinearLayout>-->
 
 
     <Button

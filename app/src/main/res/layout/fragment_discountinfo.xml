@@ -1,0 +1,128 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.project.graduate.neartheplace.Fragment.DiscountFragment">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="20dp"
+            android:text="할인혜택"
+            android:textSize="12pt"
+            android:textColor="#FF8C00"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="15dp"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/cultureBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="문화"
+                android:layout_weight="0.2"/>
+
+            <Button
+                android:id="@+id/bakeryBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="베이커리"
+                android:textSize="5pt"
+                android:layout_weight="0.2"/>
+
+            <Button
+                android:id="@+id/beautyBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="뷰티"
+                android:layout_weight="0.2"/>
+
+            <Button
+                android:id="@+id/shopBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="쇼핑"
+                android:layout_weight="0.2"/>
+
+            <Button
+                android:id="@+id/movieBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="영화"
+                android:layout_weight="0.2"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginRight="30dp"
+            android:layout_marginLeft="30dp"
+            android:weightSum="1">
+
+            <Button
+                android:id="@+id/tripBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="여행"
+                android:layout_weight="0.2"/>
+
+            <Button
+                android:id="@+id/sportsBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="6pt"
+                android:text="스포츠"
+                android:layout_weight="0.2"/>
+
+            <Button
+                android:id="@+id/foodBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="음식"
+                android:layout_weight="0.2"/>
+
+            <Button
+                android:id="@+id/cafeBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="카페"
+                android:layout_weight="0.2"/>
+
+            <Button
+                android:id="@+id/etcBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="기타"
+                android:layout_weight="0.2"/>
+
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/discountListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:divider="#FFDAB9"
+            android:dividerHeight="1dp">
+        </ListView>
+
+    </LinearLayout>
+
+
+</FrameLayout>

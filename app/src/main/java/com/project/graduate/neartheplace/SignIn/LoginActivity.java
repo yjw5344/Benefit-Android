@@ -3,14 +3,17 @@ package com.project.graduate.neartheplace.SignIn;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -32,6 +35,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import okhttp3.FormBody;
 import okhttp3.OkHttpClient;
@@ -99,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
 
     // Sign Up - Dialog
     public void Dialog() {
-        dialog = new SignUp_CustomDialog(LoginActivity.this, registListener, naverListener, cancleListener);
+        dialog = new SignUp_CustomDialog(LoginActivity.this, registListener, cancleListener);
         dialog.setCancelable(true);
         dialog.getWindow().setGravity(Gravity.CENTER);
         dialog.show();
@@ -116,13 +120,13 @@ public class LoginActivity extends AppCompatActivity {
         }
     };
 
-    // Dialog - Naver 버튼 클릭 이벤트
-    private View.OnClickListener naverListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            Toast.makeText(LoginActivity.this, "네이버", Toast.LENGTH_SHORT).show();
-            dialog.dismiss();
-        }
-    };
+    // todo : Dialog - Naver 버튼 클릭 이벤트
+//    private View.OnClickListener naverListener = new View.OnClickListener() {
+//        public void onClick(View v) {
+//            Toast.makeText(LoginActivity.this, "네이버", Toast.LENGTH_SHORT).show();
+//            dialog.dismiss();
+//        }
+//    };
 
     // Dialog - cancle 버튼 클릭 이벤트
     private View.OnClickListener cancleListener = new View.OnClickListener() {
@@ -251,6 +255,7 @@ public class LoginActivity extends AppCompatActivity {
         private final String mEmail;
         private final String mPassword;
         private String mFlag;
+        private String tokenValue;
 
         UserLoginTask(String email, String password) {
             mEmail = email;
@@ -271,7 +276,7 @@ public class LoginActivity extends AppCompatActivity {
                     .build();
 
             Request request = new Request.Builder()
-                    .url("http://10.0.2.2:8080/login/signin")
+                    .url("http://13.125.61.58:9090/auth/signin")
                     .post(formBody)
                     .build();
 
@@ -281,13 +286,15 @@ public class LoginActivity extends AppCompatActivity {
                 responseClient = client.newCall(request).execute();
                 JSONObject jsonObject = new JSONObject(responseClient.body().string());
                 mFlag = jsonObject.getString("stat");
+                tokenValue = jsonObject.getString("token");
+                saveToken(tokenValue);
             } catch (IOException e) {
                 e.printStackTrace();
             } catch (JSONException e) {
-                e.printStackTrace();
+                Log.e("Json","JsonError");
             }
 
-            // Callback 함수를 사용하는 경우 => 비동기 처리 방식으로 okhttp 처리하기 !s
+            // Callback 함수를 사용하는 경우 => 비동기 처리 방식으로 okhttp 처리하기 !
 //            client.newCall(request).enqueue(callback);
 
             // 프로그래스바 시간을 좀 더 늘이고 싶을 때 사용
@@ -317,8 +324,7 @@ public class LoginActivity extends AppCompatActivity {
 
             if (success) {
 
-                Toast.makeText(LoginActivity.this, mAuthTask.mEmail, Toast.LENGTH_SHORT).show();
-
+                //Toast.makeText(LoginActivity.this, mAuthTask.mEmail, Toast.LENGTH_SHORT).show();
                 // 로그인 성공
                 Intent connectMainActicity = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(connectMainActicity);
@@ -330,7 +336,6 @@ public class LoginActivity extends AppCompatActivity {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
                 mAuthTask = null;
-
             }
         }
 
@@ -341,6 +346,14 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
+
+    private void saveToken(String tokenValue){
+        SharedPreferences preferences = getSharedPreferences("userToken", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("token", tokenValue);
+        editor.commit();
+    }
+
 
 //    public Callback callback = new Callback() {
 //        @Override

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="300dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    tools:context="com.project.graduate.neartheplace.DiscountInfo.DiscountBankDialog">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="금융"
+                android:textSize="14pt"
+                android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="나라사랑카드 혜택"
+                android:textSize="10pt"
+                android:textColor="#FF8C00"
+                android:layout_marginTop="5dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="KB국민은행"
+                    android:textSize="6pt"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="[전월 실적 할인]\n20만원이상  - 1만원\n30만원이상  - 2만원\n50만원이상  - 3만원\n100만원이상 - 5만원\n\n[PX 할인률]\n3만원이상  - 5%\n7만원이상  - 10%\n10만원이상  - 20%\n\n[ATM 서비스]\n군 복무 중 - 당행 및 타행 ATM 출금수수료 무제한 면제\n군 복무 전,후 - 전금, 펀드, 카드대금, 공과금 이체 실적이 있는 경우 수수료 무제한 면제\n\n[일반서비스 (이용 실적 및 조건에 따라 상이함)] \n편의점  - GS25 행사상품 구매 시 할인\n놀이공원  - 현장예매 50% 환급\n영화  - CGV 35% 환급\n외식  - 아웃백, VIPS 20% 환급\n커피  - 스타벅스 20% 환급\n대중교통  - 전국버스/지하철 20% 청구할인\n이동통신  - 통신요금 2500원 환급\n어학  - 교보문고 2000원 청구할인\n온라인쇼핑  - G마켓, 옥션 등 5% 환급\n\n"
+                    android:textSize="6pt"
+                    android:layout_marginLeft="15dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="IBK기업은행"
+                    android:textSize="6pt"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="[서비스 조건]\n무실적  - 상해보험, Syrup, 그린카드\n특화서비스  - 8만원 이상\n일반서비스  - 20만원 이상\n \n[PX 할인]\n10% 청구할인\n \n[ATM 서비스]\n군 복무 중 - 당행 및 타행 ATM 출금수수료 무제한 면제\n군 복무 전,후 - 당행(무제한) 및 타행(월5회) ATM 출금수수료 면제\n \n[일반서비스 (이용 실적 및 조건에 따라 상이함)] \n편의점  - CU, GS25 10% 청구할인\n고속버스/KTX  - KTX, 고속버스 5% 청구할인\n놀이공원  - 주요 놀이공원 자유이용권 50% 현장할인\n영화 - CGV 최대 3000원 현장할인\n외식 - 아웃백 20% 현장할인\n대중교통  - 전국버스/지하철 10% 청구할인\n어학  - 토익 2000원 청구할인\n도서  - 교보문고 2000원 청구할인\n \n"
+                    android:textSize="6pt"
+                    android:layout_marginLeft="15dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="적금 혜택"
+                android:textSize="10pt"
+                android:textColor="#FF8C00"
+                android:layout_marginTop="15dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="기업"
+                    android:textSize="6pt"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="(국군희망 준비적금 - 기간에 따라)\n최저 3.8% ~ 최고 4.3%\n최저 5.3% ~ 최고 5.8%"
+                    android:textSize="6pt"
+                    android:layout_marginLeft="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="신한"
+                    android:textSize="6pt"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="(新나라사랑 적금 - 기간에 따라)\n)최저 4.4% ~ 최고 5.1%\n최저 4.5% ~ 최고 5.2%"
+                    android:textSize="6pt"
+                    android:layout_marginLeft="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="국민"
+                    android:textSize="6pt"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="(KB국군희망 준비적금 - 기간에 따라)\n최저 4.4% ~ 최고 5.7%\n최저 5.5% ~ 최고 5.8%"
+                    android:textSize="6pt"
+                    android:layout_marginLeft="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="하나"
+                    android:textSize="6pt"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="(나라지킴이 적금 - 기간에 따라)\n최저 2.0% ~ 최고 5.2%\n최저 3.2% ~ 최고 5.4%\n우대금리 최대 2.2%"
+                    android:textSize="6pt"
+                    android:layout_marginLeft="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1"
+                android:orientation="horizontal"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.3"
+                    android:text="농협"
+                    android:textSize="6pt"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.7"
+                    android:text="(NH진짜사나이 적금 - 기간에 따라)\n기본금리 + 우대금리 최대 3.0%"
+                    android:textSize="6pt"
+                    android:layout_marginLeft="25dp"/>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/dialog_bank_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="20dp"
+                android:text="닫기"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

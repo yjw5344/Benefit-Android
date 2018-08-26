@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.project.graduate.neartheplace.MainFragment.DistanceDialog"
+    android:orientation="vertical"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="거리선택"
+            android:textSize="12pt"
+            android:textColor="#FF8C00"
+            android:textStyle="bold"/>
+
+        <RadioGroup
+            android:id="@+id/dialog_distance_radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="15dp">
+
+            <RadioButton
+                android:id="@+id/dialog_distance_index1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="300m"
+                android:textStyle="bold"/>
+
+            <RadioButton
+                android:id="@+id/dialog_distance_index2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="500m"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+
+            <RadioButton
+                android:id="@+id/dialog_distance_index3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1km"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+
+            <RadioButton
+                android:id="@+id/dialog_distance_index4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="3km"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"/>
+
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="right">
+
+            <Button
+                android:id="@+id/dialog_distance_cancle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="취소"/>
+
+            <Button
+                android:id="@+id/dialog_distance_select"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="선택"/>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>
