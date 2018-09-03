@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -50,6 +51,9 @@ public class MainListAdapter extends BaseAdapter {
         TextView listBranch = (TextView) v.findViewById(R.id.listBranch);
         TextView listAddress = (TextView) v.findViewById(R.id.listAddress);
         TextView listTelephone = (TextView) v.findViewById(R.id.listTelephone);
+        LinearLayout listItem = (LinearLayout) v.findViewById(R.id.listHeight);
+
+        listItem.setMinimumHeight(180);
 
 
         ImageView listImg = (ImageView) v.findViewById(R.id.mainImg);
